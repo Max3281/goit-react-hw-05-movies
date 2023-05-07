@@ -1,5 +1,5 @@
-import MovieItem from '../components/MovieItem/MovieItem';
-import TrendingMoviesFetch from '../API/trendingMovieFetch';
+import MovieItem from '../../components/MovieItem/MovieItem';
+import TrendingMoviesFetch from '../../API/trendingMovieFetch';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
@@ -12,10 +12,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Trending today</h1>
+    <>
+      <h1 className="home-header">Trending today</h1>
       <MovieItem data={data} />
-    </div>
+    </>
   );
 };
 

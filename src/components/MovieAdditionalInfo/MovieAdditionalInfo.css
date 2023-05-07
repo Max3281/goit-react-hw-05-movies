@@ -1,0 +1,55 @@
+.movie-add-info-block {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  padding: 30px 0px;
+
+  color: azure;
+}
+
+.movie-add-info-block::after {
+  content: '';
+
+  position: absolute;
+
+  width: -webkit-fill-available;
+  height: 1px;
+
+  bottom: 0px;
+
+  background-color: azure;
+}
+
+.more-info-header {
+  margin: 0;
+}
+
+.more-info-options {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 0;
+  margin: 0;
+}
+
+.more-info {
+  font-size: 25px;
+}
+
+.info-list-style {
+  text-decoration: none;
+  color: inherit;
+
+  margin: 0;
+  padding: 0;
+}
+
+.info-list-style:hover {
+  color: greenyellow;
+}

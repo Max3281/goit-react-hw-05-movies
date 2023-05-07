@@ -1,0 +1,14 @@
+.link-style {
+  text-decoration: none;
+  color: azure;
+
+  display: block;
+  margin: 0;
+  padding: 15px 30px;
+
+  width: 200px;
+}
+
+.link-style:hover {
+  color: greenyellow;
+}

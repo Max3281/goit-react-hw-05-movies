@@ -6,19 +6,29 @@ const Layout = () => {
 
   return (
     <>
-      <ul>
-        <li>
-          <NavLink to="/" state={{ from: location }}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/movies" state={{ from: location }}>
-            Movies
-          </NavLink>
-        </li>
-      </ul>
-      <main>
+      <header>
+        <ul className="header-navigation-list">
+          <li className="navigation-unit">
+            <NavLink
+              to="/"
+              state={{ from: location }}
+              className="header-link-style"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="navigation-unit">
+            <NavLink
+              to="/movies"
+              state={{ from: location }}
+              className="header-link-style"
+            >
+              Movies
+            </NavLink>
+          </li>
+        </ul>
+      </header>
+      <main className="main">
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>

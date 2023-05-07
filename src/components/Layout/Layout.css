@@ -1,0 +1,49 @@
+.header-link-style {
+  text-decoration: none;
+  color: azure;
+}
+
+.header-link-style:hover {
+  color: greenyellow;
+}
+
+.header-navigation-list {
+  position: relative;
+
+  margin: 0;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  list-style: none;
+}
+
+.header-navigation-list::after {
+  content: '';
+  position: absolute;
+
+  height: 1px;
+  width: -webkit-fill-available;
+
+  background-color: azure;
+
+  bottom: 0px;
+}
+
+.navigation-unit {
+  text-decoration: none;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.navigation-unit:first-child {
+  margin-left: 50px;
+}
+
+.main {
+  margin: 0 auto;
+  padding: 0px 50px;
+}

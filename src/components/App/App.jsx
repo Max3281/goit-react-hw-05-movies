@@ -3,12 +3,14 @@ import { lazy } from 'react';
 
 import Layout from 'components/Layout/Layout';
 
-const Home = lazy(() => import('../../pages/Home'));
-const Movies = lazy(() => import('../../pages/Movies'));
-const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Movies = lazy(() => import('../../pages/Movies/Movies'));
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
+);
 const Cast = lazy(() => import('../../components/Cast/Cast'));
 const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
-const ErrorPage = lazy(() => import('../../pages/ErrorPage'));
+const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 export const App = () => {
   return (
@@ -20,8 +22,9 @@ export const App = () => {
           <Route path="movies/:moviesId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
-          <Route path="error" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </div>

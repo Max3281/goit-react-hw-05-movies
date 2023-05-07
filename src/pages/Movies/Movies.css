@@ -1,0 +1,34 @@
+.movie-page-input {
+  margin: 0 auto;
+  padding: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.movie-input-search {
+  margin: 0;
+  padding: 15px;
+
+  border-radius: 0px 20px 0px 20px;
+}
+
+.movie-input-search:hover {
+  border: 2px solid greenyellow;
+}
+
+.movie-search-button {
+  cursor: pointer;
+
+  margin: 0;
+  padding: 10px 25px;
+
+  border-radius: 10px;
+}
+
+.movie-search-button:hover,
+.movie-search-button:focus {
+  background-color: greenyellow;
+}

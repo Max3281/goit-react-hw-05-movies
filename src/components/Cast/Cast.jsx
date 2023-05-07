@@ -1,55 +1,18 @@
-import TrendingMoviesFetch from 'API/trendingMovieFetch';
-import findMovie from 'API/findMovie';
 import receiveCredits from 'API/receiveCredits';
-// import getPersonPoster from 'API/getPersonPoster';
 
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Cast = () => {
   const { moviesId } = useParams();
-  const location = useLocation();
 
-  const [movieId, setMovieId] = useState(Number(0));
   const [credits, setCredits] = useState(null);
 
-  const checkLocation = location.state.from.pathname;
-
-  switch (checkLocation) {
-    case '/':
-      try {
-        TrendingMoviesFetch()
-          .then(({ results }) => {
-            const findTheMovie = results.filter(
-              echo => echo.title === moviesId || echo.name === moviesId
-            );
-
-            setMovieId(Number(findTheMovie[0].id));
-          })
-          .catch(error => console.log(error));
-      } catch (error) {
-        console.log(error);
-      }
-      break;
-    case '/movies':
-      findMovie(moviesId)
-        .then(({ results }) => {
-          const findTheMovie = results.filter(
-            echo => echo.title === moviesId || echo.name === moviesId
-          );
-
-          setMovieId(Number(findTheMovie[0].id));
-        })
-        .catch(error => console.log(error));
-      break;
-    default:
-      break;
-  }
+  const posterURL = 'https://image.tmdb.org/t/p/w500';
+  const notFoundURL = <div className="actor-img-placeholder"></div>;
 
   useEffect(() => {
-    if (movieId === 0) return;
-
-    receiveCredits(movieId)
+    receiveCredits(moviesId)
       .then(rej => {
         const actorsList = rej.cast.filter(
           act => act.known_for_department === 'Acting'
@@ -58,17 +21,31 @@ const Cast = () => {
         setCredits(actorsList);
       })
       .catch(err => console.log(err));
-  }, [movieId]);
+  }, [moviesId]);
+
+  console.log(credits);
 
   if (credits)
     return (
-      <ul>
+      <ul className="cast-list-block">
         {credits.map(tao => (
-          <li key={tao.cast_id}>
-            <a href={`https://www.themoviedb.org/person/${tao.id}-${tao.name}`}>
-              <p>
-                {tao.name} / {tao.character}
-              </p>
+          <li key={tao.cast_id} className="cast-list-item">
+            <a
+              href={`https://www.themoviedb.org/person/${tao.id}-${tao.name}`}
+              className="text"
+            >
+              {(tao.profile_path && (
+                <img
+                  src={posterURL + tao.profile_path}
+                  alt={tao.name}
+                  className="actor-img"
+                />
+              )) ||
+                notFoundURL}
+              <p className="actor-text">{tao.name}</p>
+              {tao.character && (
+                <p className="actor-text curv">as: {tao.character}</p>
+              )}
             </a>
           </li>
         ))}

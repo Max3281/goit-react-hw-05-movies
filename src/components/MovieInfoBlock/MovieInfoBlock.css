@@ -1,0 +1,41 @@
+.movie-info-block {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+
+  padding-bottom: 30px;
+}
+
+.movie-info-block::after {
+  content: '';
+
+  position: absolute;
+
+  width: -webkit-fill-available;
+  height: 1px;
+
+  bottom: 0px;
+
+  background-color: azure;
+}
+
+.movie-block-poster {
+  width: 300px;
+}
+
+.color {
+  margin: 0;
+
+  color: azure;
+}
+
+.movie-article {
+  padding: 30px 0px;
+}
+
+.movie-article,
+.movie-info {
+  margin: 0;
+}
