@@ -1,9 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const linkStyle = {
-  textDecoration: 'none',
-};
-
 const MovieItem = ({ data }) => {
   const location = useLocation();
 
@@ -17,7 +13,7 @@ const MovieItem = ({ data }) => {
             <Link
               to={`/movies/${val.id}`}
               state={{ from: location }}
-              style={linkStyle}
+              className="item-card-style"
             >
               {(val.poster_path && (
                 <img

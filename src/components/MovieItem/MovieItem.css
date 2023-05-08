@@ -16,6 +16,8 @@
   align-items: center;
   gap: 15px;
 
+  color: azure;
+
   width: calc((100% - (15px * 3)) / 4);
 }
 
@@ -32,7 +34,7 @@
 }
 
 .movie-page-title {
-  color: azure;
+  color: inherit;
 
   text-overflow: ellipsis;
   overflow: hidden;
@@ -41,7 +43,13 @@
   white-space: nowrap;
 }
 
-.movie-page-title:hover,
-.movie-page-title:hover {
+.item-card-style {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+.movie-page-card:hover,
+.movie-page-card:hover {
   color: greenyellow;
 }
